@@ -14,12 +14,13 @@ public class ProjectService {
     private final ProjectRepository projectRepository;
     private final PartRepository partRepository;
 
+    //생성자
     public ProjectService(ProjectRepository projectRepository, PartRepository partRepository){
         this.projectRepository = projectRepository;
         this.partRepository = partRepository;
     }
 
-    @Transactional
+    @Transactional //이 메서드 전체가 하나의 트랜잭션으로 이루어진다.
     public void createProjectWithPart(ProjectCreateRequestDTO request){
         Project project = new Project();
         project.setTitle(request.getTitle());

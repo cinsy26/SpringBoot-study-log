@@ -9,11 +9,13 @@ import org.springframework.stereotype.Repository;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 
-@Repository
+@Repository //이 클래스는 db에 접근할 것이다~
 public class ProjectRepository {
 
+    //JdbcTemplate을 주입해서 DB 작업을 할 수 있게 한다
     private final JdbcTemplate jdbcTemplate;
 
+    //생성자
     public ProjectRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }

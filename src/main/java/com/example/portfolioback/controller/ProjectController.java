@@ -13,6 +13,7 @@ public class ProjectController {
 
     private final ProjectService projectService;
 
+    //생성자 @RequiredArgsConstructor로 대신해도 됨. 근데 나중에 바꾸기!
     public ProjectController(ProjectService projectService){
         this.projectService = projectService;
     }
