@@ -38,4 +38,10 @@ public class ProjectService {
         }
     }
 
+    @Transactional
+    public void deleteProject(Long id){
+        projectRepository.deleteById(id);
+
+        partRepository.deleteByProjectId(id);
+    }
 }

@@ -39,4 +39,9 @@ public class ProjectRepository {
 
         return keyHolder.getKey().longValue();
     }
+
+    public void deleteById(Long projectId){
+        String sql = "DELETE FROM project WHERE project_id = ?";
+        jdbcTemplate.update(sql, projectId);
+    }
 }

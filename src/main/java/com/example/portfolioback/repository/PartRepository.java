@@ -19,4 +19,11 @@ public class PartRepository {
                 part.getProjectId(), part.getTitle(), part.getDescription()
         );
     }
+
+    //파트 삭제
+    public void deleteByProjectId(Long projectId){
+        String sql = "DELETE FROM part WHERE project_id = ?";
+        jdbcTemplate.update(sql, projectId);
+    }
 }
+
