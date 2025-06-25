@@ -1,22 +1,12 @@
-package com.example.portfolioback.entity;
+package com.example.portfolioback.dto;
 
 import java.time.LocalDate;
-import java.util.List;
 
-public class Project {
-    private Long projectId;
+public class ProjectEditWithPATCHRequest {
     private String title;
     private String description;
     private LocalDate startDate;
     private LocalDate endDate;
-
-    public Long getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
-    }
 
     public String getTitle() {
         return title;
@@ -34,20 +24,19 @@ public class Project {
         this.description = description;
     }
 
-    public LocalDate getStartDate() {
+    public LocalDate getStartDate(){
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(LocalDate startDate){
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public LocalDate getEndDate(){
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(LocalDate endDate){
         this.endDate = endDate;
     }
-
 }

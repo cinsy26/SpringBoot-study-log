@@ -1,6 +1,8 @@
 package com.example.portfolioback.service;
 
 import com.example.portfolioback.dto.ProjectCreateRequestDTO;
+import com.example.portfolioback.dto.ProjectEditWithPATCHRequest;
+import com.example.portfolioback.dto.ProjectEditWithPUTRequest;
 import com.example.portfolioback.entity.Part;
 import com.example.portfolioback.entity.Project;
 import com.example.portfolioback.repository.PartRepository;
@@ -24,6 +26,7 @@ public class ProjectService {
     public void createProjectWithPart(ProjectCreateRequestDTO request){
         Project project = new Project();
         project.setTitle(request.getTitle());
+        project.setDescription(request.getDescription());
         project.setStartDate(request.getStartDate());
         project.setEndDate(request.getEndDate());
 
@@ -43,5 +46,29 @@ public class ProjectService {
         projectRepository.deleteById(id);
 
         partRepository.deleteByProjectId(id);
+    }
+
+    //전체 수정 with PUT
+    @Transactional
+    public void editProjectwithPUT(Long projectId, ProjectEditWithPUTRequest requestDto){
+        projectRepository.updateByPut(
+                projectId,
+                requestDto.getTitle(),
+                requestDto.getDescription(),
+                requestDto.getStartDate(),
+                requestDto.getEndDate()
+        );
+    }
+
+    //부분 수정 with PATCH
+    @Transactional
+    public void editProjectwithPATCH(Long projectId, ProjectEditWithPATCHRequest requestDto){
+        projectRepository.updateByPatch(
+                projectId,
+                requestDto.getTitle(),
+                requestDto.getDescription(),
+                requestDto.getStartDate(),
+                requestDto.getEndDate()
+        );
     }
 }

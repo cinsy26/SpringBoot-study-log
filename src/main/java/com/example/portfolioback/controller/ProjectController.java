@@ -1,6 +1,8 @@
 package com.example.portfolioback.controller;
 
 import com.example.portfolioback.dto.ProjectCreateRequestDTO;
+import com.example.portfolioback.dto.ProjectEditWithPATCHRequest;
+import com.example.portfolioback.dto.ProjectEditWithPUTRequest;
 import com.example.portfolioback.service.ProjectService;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,5 +28,19 @@ public class ProjectController {
     public void deleteProject(@PathVariable Long id){
         projectService.deleteProject(id);
     }
+
+    //프로젝트 정보 수정(PUT)
+    @PutMapping("/edit/put/{id}")
+    public void editProjectwithPUT(@PathVariable Long id, @RequestBody ProjectEditWithPUTRequest requestDto){
+        projectService.editProjectwithPUT(id, requestDto);
+    }
+
+    //프로젝트 정보 수정(PATCH)
+    @PatchMapping("/edit/patch/{id}")
+    public void editProjectwithPATCH(@PathVariable Long id, @RequestBody ProjectEditWithPATCHRequest requestDto){
+        projectService.editProjectwithPATCH(id, requestDto);
+    }
+
+
 }
 
