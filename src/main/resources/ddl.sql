@@ -1,14 +1,15 @@
-DROP TABLE IF EXISTS project;
 DROP TABLE IF EXISTS part;
+DROP TABLE IF EXISTS project;
 
-CREATE TABLE project(
+CREATE TABLE project (
     project_id BIGINT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(225) NOT NULL,
+    description TEXT,
     start_date DATE NOT NULL,
     end_date DATE
 );
 
-CREATE TABLE part(
+CREATE TABLE part (
     part_id BIGINT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(225) NOT NULL,
     description VARCHAR(1000),

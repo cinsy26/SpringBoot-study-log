@@ -104,6 +104,4 @@ public class ProjectRepository {
             jdbcTemplate.update(sql.toString(), params.toArray());
         }
     }
-
-
 }
