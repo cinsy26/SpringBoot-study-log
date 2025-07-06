@@ -104,4 +104,18 @@ public class ProjectRepository {
             jdbcTemplate.update(sql.toString(), params.toArray());
         }
     }
+
+    public Project findById(Long projectId) {
+        String sql = "SELECT * FROM project WHERE project_id = ?";
+        return jdbcTemplate.queryForObject(sql, (rs, rowNum) -> {
+            Project project = new Project();
+            project.setProjectId(rs.getLong("project_id"));
+            project.setTitle(rs.getString("title"));
+            project.setDescription(rs.getString("description"));
+            project.setStartDate(rs.getDate("start_date").toLocalDate());
+            project.setEndDate(rs.getDate("end_date") != null ? rs.getDate("end_date").toLocalDate() : null);
+            return project;
+        }, projectId);
+    }
+
 }

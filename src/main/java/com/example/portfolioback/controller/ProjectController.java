@@ -3,6 +3,7 @@ package com.example.portfolioback.controller;
 import com.example.portfolioback.dto.ProjectCreateRequestDTO;
 import com.example.portfolioback.dto.ProjectEditWithPATCHRequest;
 import com.example.portfolioback.dto.ProjectEditWithPUTRequest;
+import com.example.portfolioback.dto.ProjectResponseDTO;
 import com.example.portfolioback.service.ProjectService;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +42,11 @@ public class ProjectController {
         projectService.editProjectwithPATCH(id, requestDto);
     }
 
+    //프로젝트 정보 가져오기(GET)
+    @GetMapping("/fetchproject/{id}")
+    public ProjectResponseDTO fetchProject(@PathVariable Long id){
+        return projectService.fetchProject(id);
+    }
 
 }
 
